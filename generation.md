@@ -40,3 +40,11 @@ int main(){
 }
 ```
 </details>
+	
+#### B2. Xâu AB có độ dài N:
+Xâu ký tự được gọi là xâu AB nếu mỗi ký tự trong xâu hoặc là ký tự 'A' hoặc là ký tự 'B'. Liệt kê tất cả các xâu AB có độ dài N.
+</br>Input:</br>-Dòng đầu tiên đưa vào số lượng test T.</br>-Những dòng tiếp là các bộ test (số tự nhiên n)</br>- 1 <=T,n<=10.
+| Input | Output |
+| --- | --- |
+| 2</br>2</br>3|AA AB BA BB</br>AAA AAB ABA ABB BAA BAB BBA BBB|
+
