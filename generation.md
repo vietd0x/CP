@@ -83,7 +83,7 @@ int main(){
 	
 #### B4. In ra các hoán vị từ 1 -> n:
 <details>
-<summary>XauAB.cpp</summary>
+<summary>hoanViN.cpp</summary>
 	
 ```cpp
 #include <bits/stdc++.h>
@@ -118,6 +118,51 @@ int main(){
         // khoi tao chua dc su dung
         for(int i = 1; i <= n; i++) check[i] = false;
         backtrack(1);
+        printf("\n");
+    }
+    return 0;
+}
+```
+</details>
+	
+#### B5. PHân tích số:
+Cho số nguyên dương n. Liệt kê tất cả cách phân tích số tự nhiên n thành tỏng các số tự nhiên nhỏ hơn or bằng n. Phép hoán vị được xem là giống nhau. (1 <= t, n <= 10; t là số testcase).
+| Input | Output |
+| --- | --- |
+| 2</br>4</br>5|(4) (3 1) (2 2) (2 1 1) (1 1 1 1)</br>(5) (4 1) (3 2) (3 1 1) (2 2 1) (2 1 1 1) (1 1 1 1 1)|
+<details>
+<summary>PhanTichN.cpp</summary>
+	
+```cpp
+int n, a[11];
+
+void printA(){
+    printf("(");
+    int i = 0;
+    while(a[i]) printf("%d", a[i++]);
+    printf(") ");
+}
+
+void Try(int i, int k, int curSum){
+    for(int j = k; j >= 1; j--){
+        if(curSum + j <= n){
+            a[i] = j;
+            curSum += j;
+            if(curSum == n) printA();
+            Try(i+1, j, curSum);
+            curSum -= j;
+        }
+    }
+}
+			   
+int main(){
+    int t; cin >> t;
+    while (t--)
+    {
+        cin >> n;
+        // clear elements before
+        memset(a, 0, sizeof(a));
+        Try(0, n, 0);
         printf("\n");
     }
     return 0;
